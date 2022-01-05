@@ -16,15 +16,15 @@ cmake_minimum_required(VERSION 3.1)
 
 # Enable CMake policies
 
-+##### begin open3d patch
-+if(POLICY CMP0091)
-+    cmake_policy(SET CMP0091 NEW)
-+endif()
-+option(STATIC_WINDOWS_RUNTIME "Use static (MT/MTd) Windows runtime" OFF)
-+if(STATIC_WINDOWS_RUNTIME)
-+    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
-+endif()
-+##### end open3d patch
+##### begin open3d patch
+if(POLICY CMP0091)
+    cmake_policy(SET CMP0091 NEW)
+endif()
+option(STATIC_WINDOWS_RUNTIME "Use static (MT/MTd) Windows runtime" OFF)
+if(STATIC_WINDOWS_RUNTIME)
+    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+endif()
+##### end open3d patch
 
 if (POLICY CMP0091)
     # The NEW behavior for this policy is to not place MSVC runtime library flags in the default
